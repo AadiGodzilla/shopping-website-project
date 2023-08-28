@@ -1,0 +1,132 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+.product-info-main-container {
+  margin-top: 48px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: white;
+}
+
+.product-info-container {
+  background-color: white;
+  margin-top: 20px;
+  width: 100%;
+  padding: 40px;
+  overflow-x: hidden;
+}
+
+.product-info-title {
+  padding-top: 0px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 60px;
+  width: 80%;
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 100px;
+}
+
+.product-content1 {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-info-image {
+  width: 100%;
+}
+
+.product-info-price {
+  padding-bottom: 20px;
+  color: green;
+  width: 100vw;
+  text-align: center;
+}
+
+.transaction-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.transaction-content > .buttons {
+  padding: 10px;
+  font-size: 20px;
+}
+
+.product-info-list-header {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.product-info-list > li {
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+
+.cart-icon {
+  padding: 4px;
+}
+
+.buy-icon {
+  padding: 4px;
+}
+
+@media (max-width: 900px) {
+  .product-info-main-container {
+    overflow-y: auto;
+    height: 100%;
+  }
+
+  .product-info-container {
+    margin-top: 0px;
+    padding-top: 60px;
+    height: 100%;
+    overflow-y: hidden;
+  }
+
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .product-content1 {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .product-info-title {
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+  }
+
+  .transaction-content > .buttons {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100px;
+    font-size: 10px;
+  }
+}

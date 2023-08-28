@@ -1,0 +1,11 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+.cart-container {
+  margin-top: 48px;
+  width: 100px;
+  height: 100px;
+  background-color: green;
+}
