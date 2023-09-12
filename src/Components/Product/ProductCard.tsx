@@ -5,7 +5,11 @@ import { Link } from "react-router-dom";
 export function ProductCardComp(props: any) {
 	return (
 		<>
-			<Link key={props.key} to={`/product/item${props.path}`} style={{ textDecoration: "none", color: "black" }}>
+			<Link
+				key={props.key}
+				to={`/product/${props.path}`}
+				style={{ textDecoration: "none", color: "black" }}
+			>
 				<div className="product-card">
 					<img src={props.prop.imgsrc} />
 					<p className="product-title">{props.prop.about}</p>

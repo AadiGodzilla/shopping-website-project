@@ -9,31 +9,34 @@ import { Carts } from "./Components/CartPage/Cartpage";
 export const context = createContext<any>("");
 
 export default function App() {
-    const [productData, setProductData] = useState<any>([]);
+	const [productData, setProductData] = useState<any>([]);
 
-    useEffect(() => {
-        axios.get("/src/assets/json/productinfo.json").then((response) => {
-            setProductData(response.data);
-            console.log(productData);
-        });
-    }, []);
+	useEffect(() => {
+		axios.get("http://localhost:5000/productdata").then((response) => {
+			setProductData(response.data);
+			console.log(productData);
+		});
+	}, []);
 
-    return (
-        <context.Provider value={{ productData, setProductData }}>
-            <Router>
-                <Routes>
-                    <Route path="/" Component={Home} />
-                    <Route path="/products" Component={Product} />
-                    {productData.map((item: any, index: number) => (
-                        <Route
-                            key={index}
-                            path={`/product/item${item.key}`}
-                            Component={() => <ProductInfo content={item} />}
-                        />
-                    ))}
-                    <Route path="/cart" Component={Carts} />
-                </Routes>
-            </Router>
-        </context.Provider>
-    );
+	return (
+		<context.Provider value={{ productData, setProductData }}>
+			<Router>
+				<Routes>
+					<Route path="/" Component={Home} />
+					<Route path="/products" Component={Product} />
+					{productData.map((item: any, index: number) => (
+						<Route
+							key={index}
+							path={`/product/${item.about
+								.replace(/, /g, "")
+								.replace(/ /g, "-")
+								.toLowerCase()}`}
+							Component={() => <ProductInfo content={item} />}
+						/>
+					))}
+					<Route path="/cart" Component={Carts} />
+				</Routes>
+			</Router>
+		</context.Provider>
+	);
 }

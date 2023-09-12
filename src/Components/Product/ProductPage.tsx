@@ -7,16 +7,20 @@ import "../../css/ProductPage.css";
 import { context } from "../../App";
 
 export function Product() {
-  const { productData } = useContext(context);
+	const { productData } = useContext(context);
 
-  return (
-    <>
-      <AppBarComponent />
-      <Box className="product-container">
-        {productData.map((item: any, index: number) => (
-          <ProductCardComp prop={item} key={index} path={item.key} />
-        ))}
-      </Box>
-    </>
-  );
+	return (
+		<>
+			<AppBarComponent />
+			<Box className="product-container">
+				{productData.map((item: any, index: number) => (
+					<ProductCardComp
+						prop={item}
+						key={index}
+						path={item.about.replace(/, /g, "").replace(/ /g, "-").toLowerCase()}
+					/>
+				))}
+			</Box>
+		</>
+	);
 }
