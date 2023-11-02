@@ -12,9 +12,8 @@ export default function App() {
 	const [productData, setProductData] = useState<any>([]);
 
 	useEffect(() => {
-		axios.get("http://localhost:5000/productdata").then((response) => {
+		axios.get("http://localhost:8080/products/getAll").then((response) => {
 			setProductData(response.data);
-			console.log(productData);
 		});
 	}, []);
 

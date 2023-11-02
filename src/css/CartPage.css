@@ -16,14 +16,13 @@
 	width: 80vw;
 	height: 500px;
 	background-color: white;
-	overflow: hidden;
 	border-radius: 20px;
 }
 
 .cart-items-container {
 	width: 100%;
 	height: 88%;
-	overflow-y: auto;
+	overflow-y: visible;
 }
 
 .cart-items-container::-webkit-scrollbar-thumb {
@@ -52,7 +51,8 @@
 	justify-content: center;
 	gap: 30px;
 	cursor: pointer;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .cart-items-image {
