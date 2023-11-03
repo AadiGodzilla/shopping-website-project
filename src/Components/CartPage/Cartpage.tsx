@@ -23,9 +23,17 @@ export function Carts() {
 		} else {
 			setSelectedData((prevData: any) => prevData.filter((item: any) => item !== index));
 		}
+	};
 
-		console.log(selectedData);
-		console.log(index);
+	const deleteFromCart = () => {
+		axios
+			.post(
+				"http://localhost:8080/accounts/bhandari.anjan@gmail.com/deletefromcart",
+				selectedData
+			)
+			.then((response: any) => {
+				console.log(response.data);
+			});
 	};
 
 	return (
@@ -53,32 +61,25 @@ export function Carts() {
 						))}
 					</div>
 
-					<Box
-						width={"100%"}
-						height={"12%"}
-						display={"flex"}
-						justifyContent={"right"}
-						alignItems={"center"}
-						overflow={"hidden"}
-					>
-						<p
-							style={{
-								overflow: "hidden",
-								fontSize: "15px",
-								color: "orange",
-								fontWeight: "bold",
-								paddingBottom: "20px",
-								paddingRight: "20px",
-							}}
-						>
-							Total 42,00,000
-						</p>
+					<Box className="transaction-container">
+						<p className="total-price">Total 42,00,000</p>
 						<Button
-							variant="contained"
+							className="buy-now-button"
 							sx={{ marginRight: "20px", marginBottom: "20px" }}
-							onClick={() => console.log(cartData)}
+							variant="contained"
 						>
 							Buy All
+						</Button>
+						<Button
+							variant="contained"
+							sx={{
+								marginRight: "20px",
+								marginBottom: "20px",
+								backgroundColor: "red",
+							}}
+							onClick={deleteFromCart}
+						>
+							Delete
 						</Button>
 					</Box>
 				</div>

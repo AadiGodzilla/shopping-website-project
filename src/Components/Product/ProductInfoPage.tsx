@@ -2,9 +2,18 @@ import { Button } from "@mui/material";
 import "../../css/ProductInfoPage.css";
 import { AppBarComponent, Context } from "../NavBar/AppBar";
 import { useContext } from "react";
+import axios from "axios";
 
 export function ProductInfo(props: any) {
 	const [, , appBarHeight] = useContext(Context);
+
+	const addToCart = () => {
+		axios.post("http://localhost:8080/accounts/bhandari.anjan@gmail.com/addtocart", {
+			imgsrc: `${props.content.imgsrc}`,
+			about: `${props.content.about}`,
+			price: `${props.content.price}`,
+		});
+	};
 
 	return (
 		<>
@@ -17,7 +26,11 @@ export function ProductInfo(props: any) {
 							<img src={props.content.imgsrc} className="product-info-image" />
 							<h2 className="product-info-price">{props.content.price}</h2>
 							<div className="transaction-content">
-								<Button variant={"contained"} className="buttons">
+								<Button
+									variant={"contained"}
+									className="buttons"
+									onClick={addToCart}
+								>
 									Add to Cart
 								</Button>
 								<Button variant={"contained"} className="buttons">
