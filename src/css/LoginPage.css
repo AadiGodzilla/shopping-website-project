@@ -1,0 +1,87 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.main-container {
+	margin-top: 50px;
+	width: 100vw;
+	height: calc(100vh - 50px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-container {
+	position: relative;
+	width: 40%;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	border-radius: 15px;
+}
+
+.login-title {
+	padding: 5px;
+}
+
+.login-container > input {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 95%;
+	margin-top: 10px;
+	border-radius: 10px;
+	border: 1px solid black;
+	margin-bottom: 10px;
+}
+
+.submit-button {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 95%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 25px;
+	border: none;
+	color: white;
+	border-radius: 15px;
+	background-color: rgb(0, 120, 244);
+	cursor: pointer;
+	transition: 400ms;
+}
+
+.submit-button:active {
+	background-color: rgb(93, 169, 245);
+}
+
+.forgot-password {
+	text-align: end;
+	width: 90%;
+}
+
+.create-account-link {
+	cursor: pointer;
+	color: rgb(0, 120, 244);
+}
+
+.create-account-link:hover {
+	text-decoration: underline;
+}
+
+@media (max-width: 800px) {
+	.main-container {
+		margin-top: 48px;
+	}
+
+	.login-container {
+		width: 100%;
+		height: 50%;
+	}
+}

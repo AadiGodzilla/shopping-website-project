@@ -32,7 +32,7 @@ export function Carts() {
 				selectedData
 			)
 			.then((response: any) => {
-				console.log(response.data);
+				window.location.reload();
 			});
 	};
 

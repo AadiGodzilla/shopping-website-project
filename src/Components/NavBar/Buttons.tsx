@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Button, IconButton, Stack, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import LoginIcon from "@mui/icons-material/LoginRounded";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Context } from "./AppBar";
 
@@ -54,6 +54,8 @@ export function NavButtons() {
 }
 
 export function LoginButton() {
+	const navigate = useNavigate();
+
 	return (
 		<Stack
 			direction={"row-reverse"}
@@ -63,7 +65,11 @@ export function LoginButton() {
 			display={"flex"}
 			flexGrow={1}
 		>
-			<Button color="inherit" sx={{ padding: "2px", fontSize: "17px" }}>
+			<Button
+				color="inherit"
+				sx={{ padding: "2px", fontSize: "17px" }}
+				onClick={() => navigate("/login")}
+			>
 				<Stack direction={"row"} spacing={2}>
 					<LoginIcon />
 					<Typography variant="button" fontSize={"17px"}>

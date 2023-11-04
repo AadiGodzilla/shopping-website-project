@@ -5,6 +5,7 @@ import { ProductInfo } from "./Components/Product/ProductInfoPage";
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Carts } from "./Components/CartPage/Cartpage";
+import LoginPage from "./Components/LoginPage/LoginPage";
 
 export const context = createContext<any>("");
 
@@ -34,6 +35,7 @@ export default function App() {
 						/>
 					))}
 					<Route path="/cart" Component={Carts} />
+					<Route path="/login" Component={LoginPage} />
 				</Routes>
 			</Router>
 		</context.Provider>
