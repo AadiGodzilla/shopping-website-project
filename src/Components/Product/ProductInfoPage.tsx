@@ -8,7 +8,7 @@ export function ProductInfo(props: any) {
 	const [, , appBarHeight] = useContext(Context);
 
 	const addToCart = () => {
-		axios.post("http://localhost:8080/accounts/bhandari.anjan@gmail.com/addtocart", {
+		axios.post("http://localhost:7000/accounts/bhandari.anjan@gmail.com/addtocart", {
 			imgsrc: `${props.content.imgsrc}`,
 			about: `${props.content.about}`,
 			price: `${props.content.price}`,

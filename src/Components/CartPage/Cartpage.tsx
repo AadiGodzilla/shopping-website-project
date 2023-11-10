@@ -8,7 +8,7 @@ export function Carts() {
 	const [cartData, setCartData] = useState<any>([]);
 
 	useEffect(() => {
-		axios.get("http://localhost:8080/accounts/bhandari.anjan@gmail.com").then((response) => {
+		axios.get("http://localhost:7000/accounts/bhandari.anjan@gmail.com").then((response) => {
 			setCartData(response.data.cart);
 		});
 	}, []);

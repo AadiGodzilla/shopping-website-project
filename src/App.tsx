@@ -6,16 +6,25 @@ import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Carts } from "./Components/CartPage/Cartpage";
 import LoginPage from "./Components/LoginPage/LoginPage";
+import RegisterPage from "./Components/RegisterPage/RegisterPage";
+import ProfilePage from "./Components/ProfilePage/ProfilePage";
 
 export const context = createContext<any>("");
 
 export default function App() {
 	const [productData, setProductData] = useState<any>([]);
+	const [isLoggedIn, setLoggedIn] = useState<boolean>(false);
 
 	useEffect(() => {
-		axios.get("http://localhost:8080/products/getAll").then((response) => {
+		axios.get("http://localhost:7000/products/getAll").then((response) => {
 			setProductData(response.data);
 		});
+
+		if (localStorage.getItem("loggedIn") == "Profile") {
+			setLoggedIn(true);
+		} else {
+			setLoggedIn(false);
+		}
 	}, []);
 
 	return (
@@ -35,7 +44,13 @@ export default function App() {
 						/>
 					))}
 					<Route path="/cart" Component={Carts} />
-					<Route path="/login" Component={LoginPage} />
+
+					{isLoggedIn ? (
+						<Route path="/profile" Component={ProfilePage} />
+					) : (
+						<Route path="/login" Component={LoginPage} />
+					)}
+					<Route path="/register" Component={RegisterPage} />
 				</Routes>
 			</Router>
 		</context.Provider>
